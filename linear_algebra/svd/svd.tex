@@ -1,0 +1,52 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\ip}[2]{\left(#1,#2\right)}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+
+
+\begin{document}
+\title{Singular Value Decomposition}
+\author{Reid Atcheson}
+\maketitle
+
+
+\section{The SVD}
+
+
+\begin{definition}
+Suppose that $V$ is an inner product space with basis $\{v_1,\ldots\}$, then a linear operator $\Sigma$ from $V$ into $V$ is said to be
+\emph{diagonal} with respect to this basis if there exists field elements $(\sigma_i)$ such that
+
+\begin{equation*}
+\Sigma v_i = \sigma _i v_i
+\end{equation*}
+holds for all $i.$
+
+\end{definition}
+
+\begin{theorem}
+Suppose that $V$ is an inner product space with basis $\{v_1,\ldots\}$, and that $\mathbf{A}$ is a linear operator from $V$ into $V.$ Then
+there exists linear operators $\mathbf{U},\mathbf{V}$ with $\mathbf{V}^*\mathbf{V} = \mathbf{U}^*\mathbf{U}=\mathbf{I}$ and a diagonal operator $\mathbf{\Sigma}$ such that
+
+\begin{equation*}
+\mathbf{U\Sigma V}^* = \mathbf{A}
+\end{equation*}
+
+
+\end{theorem}
+
+
+\begin{proof}
+Set $\sigma_1=\norm{A}$
+\end{proof}
+
+
+
+\end{document}
