@@ -1,0 +1,81 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\newcommand{\ip}[2]{\left(#1,#2\right)}
+\newcommand{\abs}[1]{\left|#1\right|}
+\newcommand{\ap}[1]{\left(#1\right)}
+\newcommand{\norm}[1]{\left|\left|#1\right|\right|}
+\newcommand{\argmin}{\text{argmin}}
+\newcommand{\argmax}{\text{argmax}}
+
+
+\begin{document}
+\title{Continuous Functions}
+\author{Reid Atcheson}
+\maketitle
+
+
+\section{Continuous Functions}
+
+
+\begin{definition}
+  A function $f : \mathbb{Q} \to \mathbb{Q}$ is said to be \emph{continuous} if there exists
+  another function $\omega : [0,\infty) \to [0,\infty)$ such that for all $x,y$ we have
+      \begin{equation*}
+        |f(x)-f(y)| \leq \omega(|x-y|)
+      \end{equation*}
+  The function $\omega$ is called the \emph{modulus of continuity} for $f.$
+\end{definition}
+
+
+\begin{theorem}
+  Suppose that $f$ is a continuous function with modulus of continuity $\omega$ on a bounded interval $(a,b).$ 
+  Then there are functions
+  $g_{\min} : \mathbb{N} \to (a,b)$, $g_{\max} : \mathbb{N} \to (a,b)$ such that for all $x$ with $a<x<b$ we have
+  \begin{align*}
+    f(g_{\min}(n)) &\leq f(x)+\frac{1}{n} \\
+    f(g_{\max}(n)) &\geq f(x)-\frac{1}{n} \\
+  \end{align*}
+\end{theorem}
+
+\begin{proof}
+  For each $n$ define $x_i^n = a + i\frac{b-a}{n}$ for $i=0,\ldots,n$ and define
+  \begin{align*}
+    g_{\min}(n) &= \argmin_{i=0,\ldots,n} f(x_i) \\
+    g_{\max}(n) &= \argmax_{i=0,\ldots,n} f(x_i).
+  \end{align*}
+  Suppose that $a<x<b.$
+  By defining $\hat{x}=\argmin_{i=0,\ldots,n} |x-x_i^n|$ we obtain
+  \begin{align*}
+    |f(x)-f(\hat{x})| &\leq \omega(|x-\hat{x}|)\\
+                      &\leq \omega\ap{\abs{\frac{b-a}{n}}}
+  \end{align*}
+
+  so that
+
+  \begin{align*}
+    f(g_{\min}(n)) &= f(g_{\min}(n))+f(\hat{x})-f(x) -f(\hat{x})+f(x) \\
+                   &\leq f(g_{\min}(n))-f(\hat{x})+\omega\ap{\abs{\frac{b-a}{n}}}+f(x) \\
+                   &\leq f(\hat{x})-f(\hat{x}) + \omega\ap{\abs{\frac{b-a}{n}}}+f(x)  \\
+                   &=    f(x) + \omega\ap{\abs{\frac{b-a}{n}}}
+  \end{align*}
+
+  and by construction the modulus of continuity must admit a convergence modulus $\alpha$ such that
+  $\omega\ap{\abs{\frac{b-a}{\alpha(n)}}} \leq \frac{1}{n}.$
+
+
+
+
+
+
+\end{proof}
+
+
+
+\end{document}
